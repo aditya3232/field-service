@@ -1,0 +1,9 @@
+name: booking-order-app # change this to your app name
+services:
+  user-service: # change this to your service name
+    container_name: user-service # change this to your service name
+    image: sikoding20/user-service # change this to your image name
+    ports:
+      - "8001:8001" # change this to your port
+    env_file:
+      - .env
