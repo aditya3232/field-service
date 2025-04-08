@@ -1,0 +1,26 @@
+{
+  "port": ,
+  "appName": "",
+  "appEnv": "",
+  "signatureKey": "",
+  "database": {
+    "host": "",
+    "port": ,
+    "name": "",
+    "username": "",
+    "password": "",
+    "maxOpenConnection": ,
+    "maxLifetimeConnection": ,
+    "maxIdleConnection": ,
+    "maxIdleTime": 
+  },
+  "rateLimiterMaxRequest": ,
+  "rateLimiterTimeSecond": ,
+  "internalService": {
+    "user": {
+      "host": "",
+      "signatureKey": ""
+    }
+  }
+
+}

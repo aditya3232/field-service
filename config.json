@@ -1,0 +1,26 @@
+{
+  "port": 8002,
+  "appName": "user-service",
+  "appEnv": "local",
+  "signatureKey": "C6slUTczRRG0fcNWrD6eJM2z7yH9rzDV",
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "name": "field_service",
+    "username": "root",
+    "password": "barca1899",
+    "maxOpenConnection": 10,
+    "maxLifetimeConnection": 10,
+    "maxIdleConnection": 10,
+    "maxIdleTime": 10
+  },
+  "rateLimiterMaxRequest": 1000,
+  "rateLimiterTimeSecond": 60,
+  "internalService": {
+    "user": {
+      "host": "http://localhost:8001",
+      "signatureKey": "sMX8IoeuUVFw2ciFK11UCvvwmZuH3L46"
+    }
+  }
+
+}
