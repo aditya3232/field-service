@@ -41,10 +41,11 @@ type User struct {
 }
 
 type Minio struct {
-	Address   string `json:"address"`
-	AccessKey string `json:"accessKey"`
-	Secret    string `json:"secret"`
-	UseSsl    bool   `json:"useSsl"`
+	Address    string `json:"address"`
+	AccessKey  string `json:"accessKey"`
+	Secret     string `json:"secret"`
+	UseSsl     bool   `json:"useSsl"`
+	BucketName string `json:"bucketName"`
 }
 
 func Init() {

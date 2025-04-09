@@ -24,6 +24,25 @@ skeleton
     L services                       → Stores the application's core business logic
 ```
 
+```
+skeleton/
+├── cmd/                  → Titik awal (entry point) aplikasi. Biasanya berisi file `main.go`.
+├── common/               → Berisi fungsi-fungsi umum (utility/helper) yang digunakan di berbagai bagian aplikasi.
+├── config/               → Berisi konfigurasi dan inisialisasi layanan eksternal seperti database, Redis, MinIO, dsb.
+├── constants/            → Menyimpan nilai konstanta global seperti enum, status code, atau pesan error.
+├── controllers/          → Menangani logika untuk menerima dan merespons permintaan HTTP (jika REST digunakan).
+├── database/             → Berisi logika terkait database seperti migrasi dan seeder (data awal).
+│   └── seeders/          → Script untuk mengisi data awal (seeding).
+├── domain/               → Berisi elemen inti domain aplikasi.
+│   ├── dto/              → Data Transfer Object, mendefinisikan struktur data yang ditransfer.
+│   └── models/           → Model representasi data dalam aplikasi atau database.
+├── middlewares/          → Middleware untuk memproses permintaan sebelum atau sesudah controller/service.
+├── repositories/         → Berisi logika untuk akses data dari database (query, insert, update, delete).
+├── routes/               → Mendefinisikan rute-rute HTTP API (jika menggunakan REST).
+├── services/             → Menyimpan logika bisnis utama aplikasi (core business logic).
+
+```
+
 ## How to setup
 
 ```
