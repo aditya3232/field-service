@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	utilminio "field-service/common/minio"
 	"field-service/common/response"
 	"field-service/config"
 	"field-service/constants"
@@ -30,7 +31,7 @@ var command = &cobra.Command{
 		if err != nil {
 			panic(err)
 		}
-		minio, err := config.InitMinio()
+		minioRaw, err := config.InitMinio()
 		if err != nil {
 			panic(err)
 		}
@@ -49,6 +50,7 @@ var command = &cobra.Command{
 			panic(err)
 		}
 
+		minioClient := utilminio.NewMinioClient(minioRaw)
 		repository := repositories.NewRepositoryRegistry(db)
 		service := services.NewServiceRegistry(repository)
 		controller := controllers.NewControllerRegistry(service)
