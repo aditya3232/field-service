@@ -21,6 +21,12 @@
       "host": "http://localhost:8001",
       "signatureKey": "sMX8IoeuUVFw2ciFK11UCvvwmZuH3L46"
     }
+  },
+  "minio": {
+    "address": "http://localhost:9000",
+    "accessKey": "ZY0WSY3HF6UR4UG3SANT",
+    "secret": "gL+Kg1JlfLv5XdIEIe5qX7zHxMiPuxTD2Z53+8jA",
+    "useSsl": false
   }
 
 }

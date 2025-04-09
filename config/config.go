@@ -16,6 +16,7 @@ type AppConfig struct {
 	RateLimiterMaxRequest float64         `json:"rateLimiterMaxRequest"`
 	RateLimiterTimeSecond int             `json:"rateLimiterTimeSecond"`
 	InternalService       InternalService `json:"internalService"`
+	Minio                 Minio           `json:"minio"`
 }
 
 type Database struct {
@@ -37,6 +38,13 @@ type InternalService struct {
 type User struct {
 	Host         string `json:"host"`
 	SignatureKey string `json:"signatureKey"`
+}
+
+type Minio struct {
+	Address   string `json:"address"`
+	AccessKey string `json:"accessKey"`
+	Secret    string `json:"secret"`
+	UseSsl    bool   `json:"useSsl"`
 }
 
 func Init() {

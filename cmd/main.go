@@ -30,6 +30,10 @@ var command = &cobra.Command{
 		if err != nil {
 			panic(err)
 		}
+		minio, err := config.InitMinio()
+		if err != nil {
+			panic(err)
+		}
 
 		loc, err := time.LoadLocation("Asia/Jakarta")
 		if err != nil {

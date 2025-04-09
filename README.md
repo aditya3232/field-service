@@ -7,7 +7,7 @@
 <h3>Directory Structure</h3>
 
 ```
-user-service
+skeleton
     L cmd                            → Contains the main entry point or initial configuration of the application
     L common                         → Stores common functions used throughout the application
     L config                         → Contains application configurations such as environment variables and other settings
