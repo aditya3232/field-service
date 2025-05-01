@@ -1,8 +1,8 @@
-<h3>User Service</h3>
+<h3>Field Service</h3>
 
 <h3>Description</h3>
 
-<p>This repository will be used to manage user and auth</p>
+<p>...</p>
 
 <h3>Directory Structure</h3>
 

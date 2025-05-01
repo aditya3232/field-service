@@ -31,21 +31,8 @@ func (f *FieldRoute) Run() {
 	group.GET("", middlewares.AuthenticateWithoutToken(), f.controller.GetField().GetAllWithoutPagination)
 	group.GET("/:uuid", middlewares.AuthenticateWithoutToken(), f.controller.GetField().GetByUUID)
 	group.Use(middlewares.Authenticate())
-	group.GET("/pagination", middlewares.CheckRole([]string{
-		constants.Admin,
-		constants.Customer,
-	}, f.client),
-		f.controller.GetField().GetAllWithPagination)
-	group.POST("", middlewares.CheckRole([]string{
-		constants.Admin,
-	}, f.client),
-		f.controller.GetField().Create)
-	group.PUT("/:uuid", middlewares.CheckRole([]string{
-		constants.Admin,
-	}, f.client),
-		f.controller.GetField().Update)
-	group.DELETE("/:uuid", middlewares.CheckRole([]string{
-		constants.Admin,
-	}, f.client),
-		f.controller.GetField().Delete)
+	group.GET("/pagination", middlewares.CheckRole([]string{constants.Admin, constants.Customer}, f.client), f.controller.GetField().GetAllWithPagination)
+	group.POST("", middlewares.CheckRole([]string{constants.Admin}, f.client), f.controller.GetField().Create)
+	group.PUT("/:uuid", middlewares.CheckRole([]string{constants.Admin}, f.client), f.controller.GetField().Update)
+	group.DELETE("/:uuid", middlewares.CheckRole([]string{constants.Admin}, f.client), f.controller.GetField().Delete)
 }

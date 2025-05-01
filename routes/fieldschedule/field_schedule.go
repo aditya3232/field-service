@@ -31,30 +31,10 @@ func (f *FieldScheduleRoute) Run() {
 	group.GET("/lists/:uuid", middlewares.AuthenticateWithoutToken(), f.controller.GetFieldSchedule().GetAllByFieldIDAndDate)
 	group.PATCH("/status", middlewares.AuthenticateWithoutToken(), f.controller.GetFieldSchedule().UpdateStatus)
 	group.Use(middlewares.Authenticate())
-	group.GET("/pagination", middlewares.CheckRole([]string{
-		constants.Admin,
-		constants.Customer,
-	}, f.client),
-		f.controller.GetFieldSchedule().GetAllWithPagination)
-	group.GET("/:uuid", middlewares.CheckRole([]string{
-		constants.Admin,
-		constants.Customer,
-	}, f.client),
-		f.controller.GetFieldSchedule().GetByUUID)
-	group.POST("", middlewares.CheckRole([]string{
-		constants.Admin,
-	}, f.client),
-		f.controller.GetFieldSchedule().Create)
-	group.POST("/one-month", middlewares.CheckRole([]string{
-		constants.Admin,
-	}, f.client),
-		f.controller.GetFieldSchedule().GenerateScheduleForOneMonth)
-	group.PUT("/:uuid", middlewares.CheckRole([]string{
-		constants.Admin,
-	}, f.client),
-		f.controller.GetFieldSchedule().Update)
-	group.DELETE("/:uuid", middlewares.CheckRole([]string{
-		constants.Admin,
-	}, f.client),
-		f.controller.GetFieldSchedule().Delete)
+	group.GET("/pagination", middlewares.CheckRole([]string{constants.Admin, constants.Customer}, f.client), f.controller.GetFieldSchedule().GetAllWithPagination)
+	group.GET("/:uuid", middlewares.CheckRole([]string{constants.Admin, constants.Customer}, f.client), f.controller.GetFieldSchedule().GetByUUID)
+	group.POST("", middlewares.CheckRole([]string{constants.Admin}, f.client), f.controller.GetFieldSchedule().Create)
+	group.POST("/one-month", middlewares.CheckRole([]string{constants.Admin}, f.client), f.controller.GetFieldSchedule().GenerateScheduleForOneMonth)
+	group.PUT("/:uuid", middlewares.CheckRole([]string{constants.Admin}, f.client), f.controller.GetFieldSchedule().Update)
+	group.DELETE("/:uuid", middlewares.CheckRole([]string{constants.Admin}, f.client), f.controller.GetFieldSchedule().Delete)
 }

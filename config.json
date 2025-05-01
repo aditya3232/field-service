@@ -1,6 +1,6 @@
 {
   "port": 8002,
-  "appName": "user-service",
+  "appName": "field-service",
   "appEnv": "local",
   "signatureKey": "C6slUTczRRG0fcNWrD6eJM2z7yH9rzDV",
   "database": {
@@ -8,7 +8,7 @@
     "port": 5432,
     "name": "field_service",
     "username": "root",
-    "password": "barca1899",
+    "password": "root_password",
     "maxOpenConnection": 10,
     "maxLifetimeConnection": 10,
     "maxIdleConnection": 10,
@@ -23,10 +23,11 @@
     }
   },
   "minio": {
-    "address": "http://localhost:9000",
+    "address": "localhost:9000",
     "accessKey": "ZY0WSY3HF6UR4UG3SANT",
     "secret": "gL+Kg1JlfLv5XdIEIe5qX7zHxMiPuxTD2Z53+8jA",
-    "useSsl": false
+    "useSsl": false,
+    "bucketName": "soccer-field-booking"
   }
 
 }
