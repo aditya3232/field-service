@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"field-service/clients"
 	utilminio "field-service/common/minio"
 	"field-service/common/response"
 	"field-service/config"
@@ -43,16 +44,18 @@ var command = &cobra.Command{
 		time.Local = loc
 
 		err = db.AutoMigrate(
-			&models.Role{},
-			&models.User{},
+			&models.Field{},
+			&models.FieldSchedule{},
+			&models.Time{},
 		)
 		if err != nil {
 			panic(err)
 		}
 
 		minioClient := utilminio.NewMinioClient(minioRaw)
+		client := clients.NewClientRegistry()
 		repository := repositories.NewRepositoryRegistry(db)
-		service := services.NewServiceRegistry(repository)
+		service := services.NewServiceRegistry(repository, minioClient)
 		controller := controllers.NewControllerRegistry(service)
 
 		router := gin.Default()
@@ -88,7 +91,7 @@ var command = &cobra.Command{
 		router.Use(middlewares.RateLimiter(lmt))
 
 		group := router.Group("/api/v1")
-		route := routes.NewRouteRegistry(controller, group)
+		route := routes.NewRouteRegistry(controller, group, client)
 		route.Serve()
 
 		port := fmt.Sprintf(":%d", config.Config.Port)
