@@ -104,10 +104,8 @@ func ReadFromEnv() map[string]interface{} {
 		"appName":               v.GetString("APP_NAME"),
 		"appEnv":                v.GetString("APP_ENV"),
 		"signatureKey":          v.GetString("SIGNATURE_KEY"),
-		"rateLimiterMaxRequest": v.GetFloat64("RATE_LIMITER_MAX_REQUEST"),
+		"rateLimiterMaxRequest": v.GetInt("RATE_LIMITER_MAX_REQUEST"),
 		"rateLimiterTimeSecond": v.GetInt("RATE_LIMITER_TIME_SECOND"),
-		"jwtSecretKey":          v.GetString("JWT_SECRET_KEY"),
-		"jwtExpirationTime":     v.GetInt("JWT_EXPIRATION_TIME"),
 
 		// Database
 		"database.host":                  v.GetString("DB_HOST"),
@@ -119,6 +117,17 @@ func ReadFromEnv() map[string]interface{} {
 		"database.maxLifeTimeConnection": v.GetInt("DB_MAX_LIFETIME_CONNECTION"),
 		"database.maxIdleConnections":    v.GetInt("DB_MAX_IDLE_CONNECTIONS"),
 		"database.maxIdleTime":           v.GetInt("DB_MAX_IDLE_TIME"),
+
+		// Clients
+		"internalService.user.host":         v.GetString("INTERNAL_SERVICE_USER_HOST"),
+		"internalService.user.signatureKey": v.GetString("INTERNAL_SERVICE_USER_SIGNATURE_KEY"),
+
+		// Minio
+		"minio.address":    v.GetString("MINIO_ADDRESS"),
+		"minio.accessKey":  v.GetString("MINIO_ACCESS_KEY"),
+		"minio.secret":     v.GetString("MINIO_SECRET"),
+		"minio.useSsl":     v.GetBool("MINIO_USE_SSL"),
+		"minio.bucketName": v.GetString("MINIO_BUCKET_NAME"),
 	}
 
 	return configMap

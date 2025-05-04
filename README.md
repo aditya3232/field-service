@@ -8,6 +8,7 @@
 
 ```
 skeleton
+    L clients                        → Contains the client for calling other services   
     L cmd                            → Contains the main entry point or initial configuration of the application
     L common                         → Stores common functions used throughout the application
     L config                         → Contains application configurations such as environment variables and other settings
@@ -26,6 +27,7 @@ skeleton
 
 ```
 skeleton/
+├── clients/              → Berisi klien untuk memanggil layanan lain (external/internal services).
 ├── cmd/                  → Titik awal (entry point) aplikasi. Biasanya berisi file `main.go`.
 ├── common/               → Berisi fungsi-fungsi umum (utility/helper) yang digunakan di berbagai bagian aplikasi.
 ├── config/               → Berisi konfigurasi dan inisialisasi layanan eksternal seperti database, Redis, MinIO, dsb.
